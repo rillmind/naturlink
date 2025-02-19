@@ -25,22 +25,22 @@ class Guia extends Pessoa implements CRUD {
     }
 
     @Override
-    public void cadastrar() {
+    public void create() {
         System.out.println("Guia cadastrado: " + getNome());
     }
 
     @Override
-    public void atualizar() {
+    public void update() {
         System.out.println("Guia atualizado: " + getNome());
     }
 
     @Override
-    public void listar() {
+    public void read() {
         System.out.println("Listando guia: " + getNome());
     }
 
     @Override
-    public void remover() {
+    public void delete() {
         System.out.println("Guia removido: " + getNome());
     }
 }

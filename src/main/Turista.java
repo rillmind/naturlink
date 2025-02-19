@@ -23,22 +23,22 @@ class Turista extends Pessoa implements CRUD {
     }
 
     @Override
-    public void cadastrar() {
+    public void create() {
         System.out.println("Turista cadastrado: " + getNome());
     }
 
     @Override
-    public void atualizar() {
+    public void update() {
         System.out.println("Turista atualizado: " + getNome());
     }
 
     @Override
-    public void listar() {
+    public void read() {
         System.out.println("Listando turista: " + getNome());
     }
 
     @Override
-    public void remover() {
+    public void delete() {
         System.out.println("Turista removido: " + getNome());
     }
 }

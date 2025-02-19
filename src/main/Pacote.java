@@ -31,7 +31,7 @@ class Pacote {
         return atividades;
     }
 
-    public void setAtividades(List<Atividade> atividades) {
+    public void setAtividades(ArrayList<Atividade> atividades) {
         this.atividades = atividades;
     }
 
@@ -39,7 +39,7 @@ class Pacote {
         return guias;
     }
 
-    public void setGuias(List<Guia> guias) {
+    public void setGuias(ArrayList<Guia> guias) {
         this.guias = guias;
     }
 

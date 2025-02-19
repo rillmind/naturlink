@@ -1,11 +1,11 @@
 package main;
 
 public interface CRUD {
-    void cadastrar();
+    void create();
 
-    void atualizar();
+    void read();
 
-    void listar();
+    void update();
 
-    void remover();
+    void delete();
 }
