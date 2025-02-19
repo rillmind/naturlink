@@ -3,11 +3,16 @@ package main;
 import java.util.*;
 
 class Turista extends Pessoa implements CRUD {
+    private ArrayList<Turista> turistas = new ArrayList<>();
     private ArrayList<Reserva> reservas = new ArrayList<>();
+    Scanner sc = new Scanner(System.in);
 
     public Turista(int id, String nome, String email) {
         super(id, nome, email);
         this.reservas = new ArrayList<>();
+    }
+
+    public Turista() {
     }
 
     public void adicionarReserva(Reserva reserva) {
@@ -24,17 +29,43 @@ class Turista extends Pessoa implements CRUD {
 
     @Override
     public void create() {
-        System.out.println("Turista cadastrado: " + getNome());
+        System.out.print("ID: ");
+        int id = sc.nextInt(); sc.nextLine();
+        System.out.print("Nome: ");
+        String nome = sc.nextLine();
+        System.out.print("Email: ");
+        String email = sc.nextLine();
+        Turista turista = new Turista(id, nome, email);
+        turistas.add(turista);
     }
 
     @Override
     public void update() {
-        System.out.println("Turista atualizado: " + getNome());
+        System.out.print("ID: ");
+        int id = sc.nextInt(); sc.nextLine();
+        for (Turista turista : turistas) {
+            if (turista.getId() == id) {
+                System.out.print("Nome: ");
+                turista.setNome(sc.nextLine());
+                System.out.print("Email: ");
+                turista.setEmail(sc.nextLine());
+            }
+        }
     }
 
     @Override
     public void read() {
-        System.out.println("Listando turista: " + getNome());
+        int cont = 1;
+        for (Turista turista : turistas) {
+            System.out.println(
+                    "Turista " + cont +
+                    ". { id: " + turista.getId() +
+                    ". Nome: " + turista.getNome() +
+                    ". Email: " + turista.getEmail() +
+                    ". }"
+            );
+            cont++;
+        }
     }
 
     @Override

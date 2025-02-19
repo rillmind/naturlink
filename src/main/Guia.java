@@ -12,6 +12,9 @@ class Guia extends Pessoa implements CRUD {
         this.pacotes = new ArrayList<>();
     }
 
+    public Guia() {
+    }
+
     public void adicionarPacote(Pacote pacote) {
         if (pacotes.size() < 3) {
             pacotes.add(pacote);
@@ -25,8 +28,7 @@ class Guia extends Pessoa implements CRUD {
     }
 
     @Override
-    public void create() {
-        System.out.println("Guia cadastrado: " + getNome());
+    public void create(){
     }
 
     @Override

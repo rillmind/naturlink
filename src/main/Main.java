@@ -1,17 +1,36 @@
 package main;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Turista turista = new Turista(1, "João Silva", "joao@example.com");
-        Guia guia = new Guia(2, "Maria Souza", "maria@example.com", null);
-        Local local = new Local(1, "Praia do Forte", 100);
-        Pacote pacote = new Pacote(1, local, "2023-12-01", "2023-12-07");
-        Reserva reserva = new Reserva(1, turista, pacote, "2023-12-01", "2023-12-07");
+        Scanner s = new Scanner(System.in);
 
-        turista.adicionarReserva(reserva);
-        guia.adicionarPacote(pacote);
+        Turista turista = new Turista();
 
-        turista.create();
-        guia.read();
+        while (true) {
+            menu();
+
+            System.out.print("Escolha: ");
+            int option = s.nextInt();s.nextLine();
+
+            switch (option) {
+                case 1:
+                    turista.create();
+                    break;
+                case 2:
+                    turista.read();
+                    break;
+                case 3:
+                    turista.update();
+            }
+            if (option == 0) {
+                break;
+            }
+        }
+    }
+
+    public static void menu() {
+        System.out.print("\n1. Criar Turista\n2. Listar Turistas\n3. Atualizar Turista\n0. Sair\n");
     }
 }

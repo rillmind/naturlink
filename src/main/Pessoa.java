@@ -1,7 +1,7 @@
 package main;
 
 abstract class Pessoa {
-    private final int id;
+    private int id;
     private String nome;
     private String email;
 
@@ -9,6 +9,10 @@ abstract class Pessoa {
         this.id = id;
         this.nome = nome;
         this.email = email;
+    }
+
+    public Pessoa() {
+
     }
 
     public int getId() {
