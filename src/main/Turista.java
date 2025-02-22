@@ -51,6 +51,7 @@ class Turista extends Pessoa implements CRUD {
                 turista.setEmail(sc.nextLine());
             }
         }
+        System.out.print("Turista atualizado.");
     }
 
     @Override
@@ -70,6 +71,9 @@ class Turista extends Pessoa implements CRUD {
 
     @Override
     public void delete() {
-        System.out.println("Turista removido: " + getNome());
+        System.out.print("ID: ");
+        int id = sc.nextInt();
+        turistas.removeIf(turista -> turista.getId() == id);
+        System.out.println("Turista removido.");
     }
 }
