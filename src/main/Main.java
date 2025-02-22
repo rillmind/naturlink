@@ -28,48 +28,62 @@ public class Main {
                         switch (option1) {
                             case 1:
                                 turista.create();
+                                sleep(500);
                                 break;
                             case 2:
                                 turista.read();
+                                sleep(500);
                                 break;
                             case 3:
                                 turista.update();
+                                sleep(500);
                                 break;
                             case 4:
                                 turista.delete();
+                                sleep(500);
+                                break;
+                            default:
                                 break;
                         }
                         if (option1 == 0) {
                             break;
                         }
                     }
+                    break;
 
                 case 2:
                     while (true) {
                         menuGuia();
 
                         System.out.print("\nEscolha: ");
-                        int option1 = s.nextInt();
+                        int option2 = s.nextInt();
                         s.nextLine();
 
-                        switch (option1) {
+                        switch (option2) {
                             case 1:
                                 guia.create();
+                                sleep(500);
                                 break;
                             case 2:
                                 guia.read();
+                                sleep(500);
                                 break;
                             case 3:
                                 guia.update();
+                                sleep(500);
                                 break;
                             case 4:
                                 guia.delete();
+                                sleep(500);
+                                break;
+                            default:
                                 break;
                         }
-                        if (option1 == 0) {
+                        if (option2 == 0) {
                             break;
                         }
                     }
+                    break;
             }
             if (option == 0) {
                 break;
@@ -87,5 +101,13 @@ public class Main {
 
     public static void menuGuia() {
         System.out.print("\n1. Criar Guias\n2. Listar Guias\n3. Atualizar Guia\n4. Excluir Guia\n0. Sair\n");
+    }
+
+    public static void sleep(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Restaura o estado interrompido da thread
+        }
     }
 }
