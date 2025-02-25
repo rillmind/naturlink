@@ -45,6 +45,47 @@ public class Main {
                 turista.delete();
                 sleep(500);
                 break;
+              case 5:
+                System.out.print("ID do Turista: ");
+                int idTurista = s.nextInt();
+                Turista turistaReserva = turista.encontrarTuristaPorId(idTurista);
+                if (turistaReserva != null) {
+                  pacote.read();
+                  System.out.print("ID do Pacote: ");
+                  int idPacote = s.nextInt();
+                  s.nextLine();
+                  Pacote pacoteReserva = pacote.encontrarPacotePorId(idPacote);
+                  if (pacoteReserva != null) {
+                    turistaReserva.criarReserva(pacoteReserva);
+                  } else {
+                    System.out.println("Pacote não encontrado.");
+                  }
+                } else {
+                  System.out.println("Turista não encontrado.");
+                }
+                break;
+              case 6:
+                System.out.print("ID do Turista: ");
+                int idTuristaCancelar = s.nextInt();
+                Turista turistaCancelar = turista.encontrarTuristaPorId(idTuristaCancelar);
+                if (turistaCancelar != null) {
+                  System.out.print("ID da Reserva: ");
+                  int idReserva = s.nextInt();
+                  turistaCancelar.cancelarReserva(idReserva);
+                } else {
+                  System.out.println("Turista não encontrado.");
+                }
+                break;
+              case 7:
+                System.out.print("ID do Turista: ");
+                int idTuristaListar = s.nextInt();
+                Turista turistaListar = turista.encontrarTuristaPorId(idTuristaListar);
+                if (turistaListar != null) {
+                  System.out.print("Reservas do turista: ");
+                  turistaListar.listarReservas();
+                } else {
+                  System.out.println("Turista não encontrado.");
+                }
               default:
                 break;
             }
@@ -134,7 +175,7 @@ public class Main {
   }
 
   public static void menuTurista() {
-    System.out.print("\n1. Criar Turista\n2. Listar Turistas\n3. Atualizar Turista\n4. Excluir Turista\n0. Sair\n");
+    System.out.print("\n1. Criar Turista\n2. Listar Turistas\n3. Atualizar Turista\n4. Excluir Turista\n5. Criar Reserva\n6. Cancelar Reserva\n0. Sair\n");
   }
 
   public static void menuGuia() {

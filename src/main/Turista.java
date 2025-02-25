@@ -15,17 +15,54 @@ public class Turista extends Pessoa implements CRUD {
   public Turista() {
   }
 
-  public void adicionarReserva(Reserva reserva) {
-
+   public void adicionarReserva(Reserva reserva) {
     if (reservas.size() < 5) {
       reservas.add(reserva);
+      System.out.println("Reserva adicionada com sucesso!");
     } else {
-      System.out.println("Limite de reservas atingido.");
+      System.out.println("Limite de reservas atingido (máximo de 5 reservas).");
     }
   }
 
-  public void cancelarReserva(Reserva reserva) {
-    reservas.remove(reserva);
+  public void cancelarReserva(int idReserva) {
+    reservas.removeIf(reserva -> reserva.getId() == idReserva);
+    System.out.println("Reserva cancelada com sucesso!");
+  }
+
+  public void listarReservas() {
+    if (reservas.isEmpty()) {
+      System.out.println("Nenhuma reserva encontrada.");
+    } else {
+      for (Reserva reserva : reservas) {
+        System.out.println(reserva.toString());
+      }
+    }
+  }
+
+  public void criarReserva(Pacote pacote) {
+    System.out.print("ID da Reserva: ");
+    int idReserva = sc.nextInt();
+    sc.nextLine();
+    System.out.print("Data de Início (dd/MM/yyyy): ");
+    String dataInicio = sc.nextLine();
+    System.out.print("Data de Término (dd/MM/yyyy): ");
+    String dataTermino = sc.nextLine();
+
+    Reserva reserva = new Reserva(idReserva, this, pacote, dataInicio, dataTermino);
+    adicionarReserva(reserva);
+  }
+
+  public Turista encontrarTuristaPorId(int id) {
+    for (Turista turista : turistas) {
+      if (turista.getId() == id) {
+        return turista;
+      }
+    }
+    return null;
+  }
+
+  public ArrayList<Turista> getTuristas() {
+    return turistas;
   }
 
   @Override
@@ -46,10 +83,10 @@ public class Turista extends Pessoa implements CRUD {
     for (Turista turista : turistas) {
       System.out.println(
         "Turista " +
-          ". { id: " + turista.getId() +
-          ". Nome: " + turista.getNome() +
-          ". Email: " + turista.getEmail() +
-          ". }"
+          " { id: " + turista.getId() +
+          " Nome: " + turista.getNome() +
+          " Email: " + turista.getEmail() +
+          " }"
       );
     }
     System.out.println();

@@ -110,4 +110,23 @@ public class Pacote implements CRUD {
       ",\n Guias: " + guias +
       ",\n Locais: " + local;
   }
+
+  public void listarPacotes() {
+    if (pacotes.isEmpty()) {
+      System.out.println("Nenhum pacote cadastrado.");
+    } else {
+      for (Pacote p : pacotes) {
+        System.out.println(p.toString());
+      }
+    }
+  }
+
+  public Pacote encontrarPacotePorId(int id) {
+    for (Pacote p : pacotes) {
+      if (p.getId() == id) {
+        return p;
+      }
+    }
+    return null;
+  }
 }
