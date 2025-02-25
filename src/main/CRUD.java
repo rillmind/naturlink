@@ -1,11 +1,11 @@
 package main;
 
 public interface CRUD {
-    void create();
+  void create();
 
-    void read();
+  void read();
 
-    void update();
+  void update();
 
-    void delete();
+  void delete();
 }

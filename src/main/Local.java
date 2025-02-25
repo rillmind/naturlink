@@ -3,130 +3,130 @@ package main;
 import java.util.*;
 
 public class Local {
-    private int id;
-    private String nome;
-    private int limitMax;
-    private String descricao;
-    private String tipo;
-    private String pais;
-    private String estado;
-    private String cidade;
+  private int id;
+  private String nome;
+  private int limitMax;
+  private String descricao;
+  private String tipo;
+  private String pais;
+  private String estado;
+  private String cidade;
 
-    Scanner s = new Scanner(System.in);
+  Scanner s = new Scanner(System.in);
 
-    public Local(int id, String nome, int limitMax, String descricao, String tipo, String pais, String estado, String cidade) {
-        this.id = id;
-        this.nome = nome;
-        this.limitMax = limitMax;
-        this.descricao = descricao;
-        this.tipo = tipo;
-        this.pais = pais;
-        this.estado = estado;
-        this.cidade = cidade;
+  public Local(int id, String nome, int limitMax, String descricao, String tipo, String pais, String estado, String cidade) {
+    this.id = id;
+    this.nome = nome;
+    this.limitMax = limitMax;
+    this.descricao = descricao;
+    this.tipo = tipo;
+    this.pais = pais;
+    this.estado = estado;
+    this.cidade = cidade;
+  }
+
+  public Local() {
+  }
+
+  private static final Local local1 = new Local(1, "Praia do Forte", 500, "Praia paradisíaca com águas cristalinas", "Praia", "Brasil", "Bahia", "Salvador");
+  private static final Local local2 = new Local(2, "Cristo Redentor", 1000, "Monumento religioso com vista panorâmica", "Monumento", "Brasil", "Rio de Janeiro", "Rio de Janeiro");
+  private static final Local local3 = new Local(3, "Parque Ibirapuera", 2000, "Parque urbano com áreas verdes e lagos", "Parque", "Brasil", "São Paulo", "São Paulo");
+  private static final Local local4 = new Local(4, "Chapada Diamantina", 300, "Parque nacional com cachoeiras e trilhas", "Parque Nacional", "Brasil", "Bahia", "Lençóis");
+  private static final Local local5 = new Local(5, "Pelourinho", 800, "Centro histórico com arquitetura colonial", "Centro Histórico", "Brasil", "Bahia", "Salvador");
+
+  private static final ArrayList<Local> locais = new ArrayList<Local>(Arrays.asList(
+    local1, local2, local3, local4, local5
+  ));
+
+  public Local escolher() {
+    System.out.println();
+    for (Local local : locais) {
+      System.out.print(local.toString() + "\n");
     }
-
-    public Local() {
+    System.out.print("\nID do Local: ");
+    int id = s.nextInt();
+    for (Local l : locais) {
+      if (l.getId() == id) {
+        return l;
+      }
     }
+    return null;
+  }
 
-    private static final Local local1 = new Local(1, "Praia do Forte", 500, "Praia paradisíaca com águas cristalinas", "Praia", "Brasil", "Bahia", "Salvador");
-    private static final Local local2 = new Local(2, "Cristo Redentor", 1000, "Monumento religioso com vista panorâmica", "Monumento", "Brasil", "Rio de Janeiro", "Rio de Janeiro");
-    private static final Local local3 = new Local(3, "Parque Ibirapuera", 2000, "Parque urbano com áreas verdes e lagos", "Parque", "Brasil", "São Paulo", "São Paulo");
-    private static final Local local4 = new Local(4, "Chapada Diamantina", 300, "Parque nacional com cachoeiras e trilhas", "Parque Nacional", "Brasil", "Bahia", "Lençóis");
-    private static final Local local5 = new Local(5, "Pelourinho", 800, "Centro histórico com arquitetura colonial", "Centro Histórico", "Brasil", "Bahia", "Salvador");
+  public int getId() {
+    return id;
+  }
 
-    private static final ArrayList<Local> locais = new ArrayList<Local>(Arrays.asList(
-            local1, local2, local3, local4, local5
-    ));
+  public void setId(int id) {
+    this.id = id;
+  }
 
-    public Local escolher() {
-        for (Local local : locais) {
-            System.out.print(local.toString() + "\n");
-        }
-        System.out.print("ID do Local: ");
-        int id = s.nextInt();
-        for (Local l : locais) {
-            if (l.getId() == id) {
-                return l;
-            }
-        }
-        return null;
-    }
+  public String getNome() {
+    return nome;
+  }
 
-    public int getId() {
-        return id;
-    }
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  public int getLimitMax() {
+    return limitMax;
+  }
 
-    public String getNome() {
-        return nome;
-    }
+  public void setLimitMax(int limitMax) {
+    this.limitMax = limitMax;
+  }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+  public String getDescricao() {
+    return descricao;
+  }
 
-    public int getLimitMax() {
-        return limitMax;
-    }
+  public void setDescricao(String descricao) {
+    this.descricao = descricao;
+  }
 
-    public void setLimitMax(int limitMax) {
-        this.limitMax = limitMax;
-    }
+  public String getTipo() {
+    return tipo;
+  }
 
-    public String getDescricao() {
-        return descricao;
-    }
+  public void setTipo(String tipo) {
+    this.tipo = tipo;
+  }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+  public String getPais() {
+    return pais;
+  }
 
-    public String getTipo() {
-        return tipo;
-    }
+  public void setPais(String pais) {
+    this.pais = pais;
+  }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
+  public String getEstado() {
+    return estado;
+  }
 
-    public String getPais() {
-        return pais;
-    }
+  public void setEstado(String estado) {
+    this.estado = estado;
+  }
 
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
+  public String getCidade() {
+    return cidade;
+  }
 
-    public String getEstado() {
-        return estado;
-    }
+  public void setCidade(String cidade) {
+    this.cidade = cidade;
+  }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    @Override
-    public String toString() {
-        return "Local {" +
-                "id= " + id +
-                ",nome= " + nome +
-                ",cidade= " + cidade +
-                ",estado= " + estado +
-                ",pais= " + pais +
-                ",tipo= " + tipo +
-                ",descricao= " + descricao +
-                ",limite maximo= " + limitMax +
-                "}";
-    }
+  @Override
+  public String toString() {
+    return "Local :\n" +
+      " id: " + id +
+      ", nome: " + nome +
+      ", cidade: " + cidade +
+      ", estado: " + estado +
+      ", pais: " + pais +
+      ",\n tipo: " + tipo +
+      ",\n descricao: " + descricao +
+      ",\n limite maximo: " + limitMax;
+  }
 }
