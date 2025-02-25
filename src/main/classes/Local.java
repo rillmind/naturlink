@@ -1,6 +1,12 @@
-package main;
+package main.classes;
 
-import java.util.*;
+import main.exceptions.AtividadeNaoEncontradaException;
+import main.exceptions.EntradaInvalidaException;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Local {
   private int id;
@@ -38,19 +44,27 @@ public class Local {
     local1, local2, local3, local4, local5
   ));
 
-  public Local escolher() {
-    System.out.println();
-    for (Local local : locais) {
-      System.out.print(local.toString() + "\n");
-    }
-    System.out.print("\nID do Local: ");
-    int id = s.nextInt();
-    for (Local l : locais) {
-      if (l.getId() == id) {
-        return l;
+  public Local escolher() throws EntradaInvalidaException, AtividadeNaoEncontradaException {
+    try {
+      System.out.println();
+      for (Local local : locais) {
+        System.out.print(local.toString() + "\n");
       }
+      System.out.print("\nID do Local: ");
+      int id = s.nextInt();
+      s.nextLine();
+
+      for (Local l : locais) {
+        if (l.getId() == id) {
+          return l;
+        }
+      }
+
+      throw new AtividadeNaoEncontradaException("Local com ID " + id + " não encontrado.");
+    } catch (InputMismatchException e) {
+      s.nextLine();
+      throw new EntradaInvalidaException("Entrada inválida. Por favor, insira um número inteiro.");
     }
-    return null;
   }
 
   public int getId() {

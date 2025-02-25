@@ -1,4 +1,4 @@
-package main;
+package main.classes;
 
 public class Reserva {
   private int id;

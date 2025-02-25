@@ -1,4 +1,4 @@
-package main;
+package main.abstratas;
 
 public abstract class Pessoa {
   private int id;
