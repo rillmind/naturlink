@@ -20,7 +20,7 @@ public class Atividade {
   }
 
   private static final Atividade atividade1 = new Atividade(1, "Trilha na Praia", 120, "Trilha pela orla da praia");
-  private static final Atividade atividade2 = new Atividade(2, "Visita ao Cristo Redentor", 90, "Visita ao monumento do Cristo Redentor");
+  private static final Atividade atividade2 = new Atividade(2, "Tour pela cidade", 90, "Visita as principais atrações da cidade");
   private static final Atividade atividade3 = new Atividade(3, "Passeio de Barco", 180, "Passeio de barco pelas ilhas");
   private static final Atividade atividade4 = new Atividade(4, "Cachoeira da Chapada", 240, "Trilha até a cachoeira");
   private static final Atividade atividade5 = new Atividade(5, "Tour Histórico", 120, "Tour pelo centro histórico");
