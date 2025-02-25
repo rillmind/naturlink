@@ -2,21 +2,29 @@ package main;
 
 import java.util.*;
 
-class Pacote {
+public class Pacote implements CRUD{
     private int id;
     private ArrayList<Atividade> atividades = new ArrayList<>();
     private ArrayList<Guia> guias = new ArrayList<>();
     private Local local;
-    private String dataInicio;
-    private String dataTermino;
 
-    public Pacote(int id, Local local, String dataInicio, String dataTermino) {
+    ArrayList<Pacote> pacotes = new ArrayList<>();
+
+    Scanner s = new Scanner(System.in);
+
+    Local local1 = new Local();
+    Atividade atividade = new Atividade();
+    Pacote pacote;
+    Guia guia = new Guia();
+
+    public Pacote(int id, ArrayList<Atividade> atividades, ArrayList<Guia> guias, Local local) {
         this.id = id;
+        this.atividades = atividades;
+        this.guias = guias;
         this.local = local;
-        this.dataInicio = dataInicio;
-        this.dataTermino = dataTermino;
-        this.atividades = new ArrayList<>();
-        this.guias = new ArrayList<>();
+    }
+
+    public Pacote() {
     }
 
     public int getId() {
@@ -51,19 +59,59 @@ class Pacote {
         this.local = local;
     }
 
-    public String getDataInicio() {
-        return dataInicio;
+    @Override
+    public void create() {
+        System.out.print("ID do Pacote: ");
+        int id = s.nextInt();
+        ArrayList<Atividade> atividades = atividade.escolher();
+        ArrayList<Guia> guias = guia.escolher();
+        Local local2 = local1.escolher();
+        pacote = new Pacote(id, atividades, guias, local2);
+        pacotes.add(pacote);
     }
 
-    public void setDataInicio(String dataInicio) {
-        this.dataInicio = dataInicio;
+    @Override
+    public void read() {
+        for (Pacote p : pacotes) {
+            System.out.println(p.toString());
+        }
     }
 
-    public String getDataTermino() {
-        return dataTermino;
+    @Override
+    public void update() {
+        System.out.print("ID do Pacote: ");
+        int id = s.nextInt();
+        for (Pacote p : pacotes) {
+            if (p.getId() == id) {
+                ArrayList<Atividade> atividades = atividade.escolher();
+                p.setAtividades(atividades);
+                ArrayList<Guia> guias = guia.escolher();
+                p.setGuias(guias);
+                Local local2 = local1.escolher();
+                p.setLocal(local2);
+                System.out.print("Pacote atualizado!");
+            }
+        }
     }
 
-    public void setDataTermino(String dataTermino) {
-        this.dataTermino = dataTermino;
+    @Override
+    public void delete() {
+        System.out.print("ID do Pacote: ");
+        int id = s.nextInt();
+        for (Pacote p : pacotes) {
+            if (p.getId() == id) {
+                pacotes.remove(p);
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Pacote{" +
+                "id=" + id +
+                ", atividades=" + atividades +
+                ", guias=" + guias +
+                ", local=" + local +
+                '}';
     }
 }

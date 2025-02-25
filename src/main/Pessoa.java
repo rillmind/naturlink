@@ -1,6 +1,6 @@
 package main;
 
-abstract class Pessoa {
+public abstract class Pessoa {
     private int id;
     private String nome;
     private String email;
@@ -33,5 +33,12 @@ abstract class Pessoa {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'';
     }
 }

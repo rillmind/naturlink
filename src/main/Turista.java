@@ -2,7 +2,7 @@ package main;
 
 import java.util.*;
 
-class Turista extends Pessoa implements CRUD {
+public class Turista extends Pessoa implements CRUD {
     private ArrayList<Turista> turistas = new ArrayList<>();
     private ArrayList<Reserva> reservas = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
@@ -16,6 +16,7 @@ class Turista extends Pessoa implements CRUD {
     }
 
     public void adicionarReserva(Reserva reserva) {
+
         if (reservas.size() < 5) {
             reservas.add(reserva);
         } else {
@@ -29,11 +30,11 @@ class Turista extends Pessoa implements CRUD {
 
     @Override
     public void create() {
-        System.out.print("ID: ");
+        System.out.print("ID do Turista: ");
         int id = sc.nextInt(); sc.nextLine();
-        System.out.print("Nome: ");
+        System.out.print("Nome do Turista: ");
         String nome = sc.nextLine();
-        System.out.print("Email: ");
+        System.out.print("Email do Turista: ");
         String email = sc.nextLine();
         Turista turista = new Turista(id, nome, email);
         turistas.add(turista);
@@ -41,13 +42,13 @@ class Turista extends Pessoa implements CRUD {
 
     @Override
     public void update() {
-        System.out.print("ID: ");
+        System.out.print("ID do Turista: ");
         int id = sc.nextInt(); sc.nextLine();
         for (Turista turista : turistas) {
             if (turista.getId() == id) {
-                System.out.print("Nome: ");
+                System.out.print("Nome do Turista: ");
                 turista.setNome(sc.nextLine());
-                System.out.print("Email: ");
+                System.out.print("Email do Turista: ");
                 turista.setEmail(sc.nextLine());
             }
         }
@@ -71,7 +72,7 @@ class Turista extends Pessoa implements CRUD {
 
     @Override
     public void delete() {
-        System.out.print("ID: ");
+        System.out.print("ID do Turista: ");
         int id = sc.nextInt();
         turistas.removeIf(turista -> turista.getId() == id);
         System.out.println("Turista removido.");

@@ -1,6 +1,6 @@
 package main;
 
-class Reserva {
+public class Reserva {
     private int id;
     private Turista turista;
     private Pacote pacote;

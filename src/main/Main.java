@@ -8,6 +8,7 @@ public class Main {
 
         Turista turista = new Turista();
         Guia guia = new Guia();
+        Pacote pacote = new Pacote();
 
         while (true) {
             menu();
@@ -84,6 +85,39 @@ public class Main {
                         }
                     }
                     break;
+
+                case 3:
+                    while (true) {
+                        menuPacote();
+
+                        System.out.print("\nEscolha: ");
+                        int option3 = s.nextInt();
+                        s.nextLine();
+
+                        switch (option3) {
+                            case 1:
+                                pacote.create();
+                                sleep(500);
+                                break;
+                            case 2:
+                                pacote.read();
+                                sleep(500);
+                                break;
+                            case 3:
+                                pacote.update();
+                                sleep(500);
+                                break;
+                            case 4:
+                                pacote.delete();
+                                sleep(500);
+                                break;
+                            default:
+                                break;
+                        }
+                        if (option3 == 0) {
+                            break;
+                        }
+                    }
             }
             if (option == 0) {
                 break;
@@ -92,7 +126,7 @@ public class Main {
     }
 
     public static void menu() {
-        System.out.print("\n1. Menu de Turistas\n2. Menu de Guias\n0. Sair\n");
+        System.out.print("\n1. Menu de Turistas\n2. Menu de Guias\n3. Menu de Pacotes\n0. Sair\n");
     }
 
     public static void menuTurista() {
@@ -103,11 +137,15 @@ public class Main {
         System.out.print("\n1. Criar Guias\n2. Listar Guias\n3. Atualizar Guia\n4. Excluir Guia\n0. Sair\n");
     }
 
+    public static void menuPacote() {
+        System.out.print("\n1. Criar Pacote\n2. Listar Pacotes\n3. Atualizar Pacote\n4. Excluir Pacote\n0. Sair\n");
+    }
+
     public static void sleep(long millis) {
         try {
             Thread.sleep(millis);
         } catch (InterruptedException e) {
-            Thread.currentThread().interrupt(); // Restaura o estado interrompido da thread
+            Thread.currentThread().interrupt();
         }
     }
 }
