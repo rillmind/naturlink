@@ -54,4 +54,15 @@ public class Reserva {
   public void setDataTermino(String dataTermino) {
     this.dataTermino = dataTermino;
   }
+
+  @Override
+  public String toString() {
+    return "Reserva{" +
+      "id=" + id +
+      ", turista=" + turista +
+      ", pacote=" + pacote +
+      ", dataInicio='" + dataInicio + '\'' +
+      ", dataTermino='" + dataTermino + '\'' +
+      '}';
+  }
 }

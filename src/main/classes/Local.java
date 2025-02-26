@@ -133,13 +133,12 @@ public class Local {
 
   @Override
   public String toString() {
-    return "Local :\n" +
-      " id: " + id +
+    return " id: " + id +
       ", nome: " + nome +
       ", cidade: " + cidade +
       ", estado: " + estado +
       ", pais: " + pais +
-      ",\n tipo: " + tipo +
+      ", tipo: " + tipo +
       ",\n descricao: " + descricao +
       ",\n limite maximo: " + limitMax;
   }
